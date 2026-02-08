@@ -74,7 +74,6 @@ import { renderInstances } from "./views/instances.ts";
 import { renderLogs } from "./views/logs.ts";
 import { renderNodes } from "./views/nodes.ts";
 import { renderOverview } from "./views/overview.ts";
-import { renderRedesign } from "./views/redesign.ts";
 import { renderSessions } from "./views/sessions.ts";
 import { renderSkills } from "./views/skills.ts";
 import { renderUsage } from "./views/usage.ts";
@@ -1215,7 +1214,6 @@ export function renderApp(state: AppViewState) {
               })
             : nothing
         }
-        ${state.tab === "redesign" ? renderRedesign() : nothing}
       </main>
       ${renderExecApprovalPrompt(state)}
       ${renderGatewayUrlConfirmation(state)}
