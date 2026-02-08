@@ -8,6 +8,7 @@ export const TAB_GROUPS = [
   },
   { label: "Agent", tabs: ["agents", "skills", "nodes"] },
   { label: "Settings", tabs: ["config", "debug", "logs"] },
+  { label: "Lab", tabs: ["redesign"] },
 ] as const;
 
 export type Tab =
@@ -23,7 +24,8 @@ export type Tab =
   | "chat"
   | "config"
   | "debug"
-  | "logs";
+  | "logs"
+  | "redesign";
 
 const TAB_PATHS: Record<Tab, string> = {
   agents: "/agents",
@@ -39,6 +41,7 @@ const TAB_PATHS: Record<Tab, string> = {
   config: "/config",
   debug: "/debug",
   logs: "/logs",
+  redesign: "/redesign",
 };
 
 const PATH_TO_TAB = new Map(Object.entries(TAB_PATHS).map(([tab, path]) => [path, tab as Tab]));
@@ -150,6 +153,8 @@ export function iconForTab(tab: Tab): IconName {
       return "bug";
     case "logs":
       return "scrollText";
+    case "redesign":
+      return "zap";
     default:
       return "folder";
   }
@@ -183,6 +188,8 @@ export function titleForTab(tab: Tab) {
       return "Debug";
     case "logs":
       return "Logs";
+    case "redesign":
+      return "Redesign Lab";
     default:
       return "Control";
   }
@@ -216,6 +223,8 @@ export function subtitleForTab(tab: Tab) {
       return "Gateway snapshots, events, and manual RPC calls.";
     case "logs":
       return "Live tail of the gateway file logs.";
+    case "redesign":
+      return "UI redesign sandbox — iterate on the new look here.";
     default:
       return "";
   }
